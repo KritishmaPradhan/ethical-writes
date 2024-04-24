@@ -1,0 +1,22 @@
+body {
+    background-image: url('page5.jpg');
+    background-repeat:repeat;
+    background-size: cover;
+    background-position: center;
+     }
+.block p{
+    color: rgb(247, 241, 241);
+    font-size: 1.2em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: 3px solid rgb(224, 249, 79);
+    border-radius:40px;
+    height: 500px;
+    padding: 40px;
+    padding-right: 100px;
+    text-align: justify;
+    line-height: 7mm;
+}
+h1{
+    color: rgb(240, 240, 244);
+    font-size: 3em;
+}

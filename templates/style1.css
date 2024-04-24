@@ -1,0 +1,126 @@
+body {
+    background-image: url('page3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+     }
+h1 {
+        display: ruby-base;
+        font-size: 4em;
+        margin-top: 0.67em;
+        margin-bottom: 0.5px;
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-align: left; 
+    }
+h2 {
+        display: ruby-base;
+        font-size: 2em;
+        margin-top: 0.2em;
+        margin-bottom: 3px;
+        margin-left: 0;
+        margin-right: 0;
+        font-style:oblique;
+        font-family: serif; 
+        text-align: left;
+    }   
+h3 {
+        display: ruby-base;
+        font-size: 3em;
+        margin-top: 0.2em;
+        margin-bottom: 10px;
+        margin-left: 0;
+        margin-right: 0;
+        font-style: normal;
+        font-family: serif; 
+        text-align: left;
+    }
+img{
+    width: 11em;
+    height:12em;
+    position: absolute;         
+    margin-left:1250px;
+    top:20px;
+   }
+.write1 {
+    border: 2px solid rgb(240, 126, 202);
+    border-radius: 40px;
+    width:500px;
+    height:80px;
+    margin-bottom:50px;
+    text-align:center;
+    box-shadow: 10px 10px 5px rgb(25, 21, 21);
+    backdrop-filter: blur(5px);
+        }
+.write2 {
+    border: 2px solid rgb(80, 22, 66);
+    border-radius: 40px;
+    width:500px;
+    height:80px;
+    margin-bottom: 50px;
+    text-align:center;
+    box-shadow: 10px 10px 5px rgb(23, 14, 21);
+    backdrop-filter: blur(5px);
+
+        }
+.write3 {
+    border: 2px solid #291a47;
+    border-radius: 40px;
+    width:500px;
+    height:80px;
+    text-align:center;
+    box-shadow: 10px 10px 5px black;
+    backdrop-filter: blur(5px);
+        }
+.write1 button{
+    color: rgb(251, 248, 248);
+    font-style: normal;
+    font-family: serif; 
+    font-size: 2em;
+    background: transparent;
+    border:none;
+    background-size: contain;
+    width: 500px;
+    height:80px;
+}
+.write2 button{
+    color: rgb(251, 248, 248);
+    background: transparent;
+    border:none;
+    font-style: normal;
+    font-family: serif; 
+    font-size: 2em;
+    width: 500px;
+    height:80px;  
+}
+.write3 button{
+    color: rgb(251, 248, 248);
+    background: transparent;
+    border: none;
+    font-style: normal;
+    font-family: serif; 
+    font-size: 2em;
+    width: 500px;
+    height:80px;
+}
+.write4 {
+    color: black;
+    background: rgb(170, 144, 221);
+    border-radius:none;
+    margin-top: 40px;
+    width:200px;
+    height:40px;
+    text-align: center;
+    border: whitesmoke;
+    box-shadow: 10px 10px 5px black;
+    }
+.write4 button{
+    color: rgb(251, 248, 248);
+    background: transparent;
+    border: none;
+    font-style: normal;
+    font-family: serif; 
+    font-size: 1.5em;
+}
