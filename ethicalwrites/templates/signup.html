@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    <style>
+body
+{
+    background-color:#ceeaf8ba;
+    font-family: 'Arial';
+    background-image: url('../static/bitmap.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.login{
+        width: 600px;
+        height: auto;
+        background: white;
+        border-radius: 15px ;
+        box-shadow: 13px 8px 5px rgba(4, 4, 4, 0.1);
+        padding: 20px;
+        margin: auto;
+        /*opacity: 0.7;*/     
+}
+h2{
+    text-align: center;
+    color: #080808;
+    font-family:Arial, Helvetica, sans-serif ;
+    font-weight: bold;
+    font-size: 50px;;
+}
+label{
+    color: #070707;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    left: 50px;
+}
+input{
+      padding: 8px;
+      border-radius: 15px;
+      background-color:  rgb(219, 244, 251);
+      border: none;
+      margin-left: 50px;
+      width: 460px;
+}
+input:hover{
+    background-color: rgb(213, 217, 204);
+}
+
+button{
+      background-color: rgb(248, 248, 111);
+      color: black;
+      border: none;
+      border-radius: 15px;
+      height: 39px;
+      width: 300px;
+      margin-top: 30px;
+      margin-left: 150px;
+      font-weight: bold;
+}
+button:focus {
+    outline: none;
+}
+button:hover{
+    transform: scale(1.1);
+}
+select{
+    position: relative;
+    margin-left: 50px;
+    background-color: rgb(219, 244, 251);
+    border-radius: 5px;
+    border: none;
+    height: 20px;
+}
+select:hover{
+    transform: scale(1.1);
+}
+
+    </style>
+</head>
+<body>
+    <div class="login">
+    <h2> Sign Up</h2>
+    <form  action="signup" method="POST">
+        {% csrf_token %}
+        <label>Name
+        </label><br><br>
+        <input type="text" name="username" id="name" placeholder="Name">
+        <br><br>
+        <label>Password
+        </label><br><br>
+        <input type="Password" name="password" id="password" placeholder="Password">
+        <br><br>
+        <label>Email
+        </label><br><br>
+        <input type="Email" name="email" id="email" placeholder="Enter your email">
+        <br><br>
+        <label>Phone
+        </label><br><br>
+        <input type="text" name="phone" id="phone" placeholder="">
+        <br><br>
+        <label>Continent
+        </label><br><br>
+        <select name = "continent">
+            <option>Asia</option>
+            <option>Europe</option>
+            <option>Australia</option>
+            <option>Africa</option>
+            <option>Antartica</option>
+            <option>South America</option>
+            <option>North America</option>
+        </select>
+        <br><br>
+        <button class="submit" type="submit">Signup</button>
+    </form>
+</div>
+</body>
+</html>

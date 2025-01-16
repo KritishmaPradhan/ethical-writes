@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Kritishma Pradhan </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+    background: linear-gradient(290deg, rgb(170, 246, 241),  rgb(211, 233, 237), rgb(250, 208, 237))
+     }
+h1 {
+        font-size: 4em;
+        font-weight: bold;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-align: left; 
+        margin-left: 8px;
+    }
+h2 {
+        font-size: 2em;
+        font-style:oblique;
+        font-family: serif; 
+        text-align: left;
+        margin-left: 8px;
+    }   
+h3 {
+        font-size: 2.5em;
+        font-style: normal;
+        font-family: serif; 
+        text-align: center;
+        border: 1px solid rgb(196, 220, 234);
+        padding:10px; 
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    padding: 20px;
+    margin: auto;
+}
+.write{
+    width:250px;
+    height:130px;
+    text-align:center;
+    background-color: rgb(248, 248, 111);
+}
+.write:hover{
+    transform: scale(1.1);
+}
+.write button{
+    color: black;
+    font-style: normal;
+    font-family: serif; 
+    font-size: 1.4em;
+    background: transparent;
+    border:none;
+    background-size: contain;
+    width: 250px;
+    height:100px;
+}
+button:focus {
+  outline: none;
+}
+.write2{
+    background-color: rgb(173, 241, 219);
+}
+.write3{
+    background-color: rgb(214, 174, 252);
+}
+.write4{
+    background-color: rgb(248, 192, 192);
+}
+.write5{
+    background-color: rgb(251, 126, 230);
+}
+.write6{
+    background-color: rgb(158, 246, 123);
+}
+.write7{
+    background-color: rgb(250, 200, 200);
+}
+.write8{
+    background-color: blanchedalmond;
+}
+.fa-solid {
+    color: black;
+    font-size: 30px;
+    position: absolute;
+    left:5px;
+    top:690px;
+}
+#logoutbot{
+    color:rgb(6, 6, 6);
+    font-size: 1em;
+    text-decoration: none;
+    border-bottom: 2px solid black;;
+    position: absolute;
+    top:20px;
+    right: 20px;
+  }
+  #logoutbot:hover{
+    color: rgb(122, 130, 3);
+  }
+  .custom-alert {
+    width: 300px;
+    max-width: 90%;
+    margin: 10px auto; 
+    padding: 10px; 
+}
+
+    </style>
+    </head>
+        <body>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+            {% for m in messages %}
+              <div class="alert alert-warning alert-dismissible fade show custom-alert" role="alert">
+                  {{m}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+            {% endfor %}
+            <h1> Ethical writes</h1>
+            <h2> Nothing is perfect</h2>
+            <h3> Our Creations</h3>
+            <div class="container">
+                <div class="write write1" >
+                    <a href="{% url 'webpage2'%}">
+                        <button>Mystery genre</button>
+                    </a>
+                </div>
+
+                <div class="write write2" >
+                    <a href="{% url 'webpage3'%}">
+                        <button>Emotional genre</button>
+                    </a>
+                </div>
+
+                <div class="write write3" >
+                    <a href="{% url 'webpage4'%}">
+                        <button>Reminiscence genre</button>
+                    </a>
+                </div>
+                <div class="write write4">
+                    <a href="{% url 'webpage4'%}">
+                        <button>Thought</button>
+                    </a>
+                </div> 
+                <div class="write write5">
+                    <a href="{% url 'webpage4'%}">
+                        <button>Thought</button>
+                    </a>
+                </div> 
+                <div class="write write6">
+                    <a href="{% url 'webpage4'%}">
+                        <button>Thought</button>
+                    </a>
+                </div> 
+                <div class="write write7">
+                    <a href="{% url 'webpage4'%}">
+                        <button>Thought</button>
+                    </a>
+                </div> 
+                <div class="write write8">
+                    <a href="{% url 'webpage4'%}">
+                        <button>Thought</button>
+                    </a>
+                </div>    
+                    <a href="{% url 'home' %}">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>  
+            </div>
+                <a id ="logoutbot" href = "{% url 'logout_user' %}">
+                    Log out
+                </a>
+            </div>
+        </body>
+</html>
