@@ -20,6 +20,7 @@ def login_user(request):
             messages.error(request, "Incorrect credentials")
             return redirect('login_user') 
     return render(request, 'login_user.html')
+
 def signup(request):
     if request.method == 'POST':
         u_name = request.POST.get('username')
