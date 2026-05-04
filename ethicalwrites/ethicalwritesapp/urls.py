@@ -20,9 +20,9 @@ from ethicalwritesapp import views
 
 urlpatterns = [
     path('', views.index, name="home"),
-    path('login_user', views.login_user, name="login_user"),
-    path('logout_user', views.logout_user, name="logout_user"),    
-    path('signup', views.signup, name = "signup"),
+    path('login_user/', views.login_user, name="login_user"),
+    path('logout_user/', views.logout_user, name="logout_user"),    
+    path('signup/', views.signup, name = "signup"),
     path('webpage1', views.webpage1, name= "webpage1"),
     path('webpage2', views.webpage2, name= "webpage2"),
     path('webpage3', views.webpage3, name= "webpage3"),

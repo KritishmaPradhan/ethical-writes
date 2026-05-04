@@ -126,3 +126,15 @@ STATICFILES_DIRS = [
 ]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Authentication Settings
+LOGIN_URL = 'login_user'
+LOGIN_REDIRECT_URL = 'webpage1'
+LOGOUT_REDIRECT_URL = 'home'
+
+# Security Settings
+SESSION_COOKIE_SECURE = False  # Set to True in production with HTTPS
+CSRF_COOKIE_SECURE = False      # Set to True in production with HTTPS
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = True
+SESSION_COOKIE_AGE = 1209600   # 2 weeks in seconds
+

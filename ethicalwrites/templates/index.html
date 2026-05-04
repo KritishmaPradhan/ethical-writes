@@ -1,259 +1,255 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ethical writes</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethical Writes — Where Stories Find Their Voice</title>
+    <meta name="description"
+        content="A literary platform for inspiring, creative, and thought-provoking writings from voices around the world.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<style>
-  body {
-    background-image: url('../static/page1.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 600px;
-    background-color:  rgb(211, 233, 237);
-
-   }
-  h1 {
-    display: ruby-base;
-    font-size: 4em;
-    margin-top: 0.67em;
-    margin-bottom: 1px;
-    margin-left: 50px;
-    font-weight: bold;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-align: left; 
-  }
-  h2 {
-    display: ruby-base;
-    font-size: 2em;
-    margin-top: 0.67em;
-    margin-bottom: 9px;
-    margin-left: 50px;
-    font-style: italic;
-    font-family: serif; 
-    text-align: left;
-  }
-  .text {
-    font-size: 1cm;
-    margin-left: 50px;
-    font-family: serif;
-    text-align:left;
-    line-height: 1.1;
-  }
-  .text1{
-    border: 2px solid rgb(221, 245, 87);
-    width: 500px;
-    padding: 20px;
-    font-size: 0.5cm;
-    text-align: left;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin-left: 50px;
-  }
-  .text2{
-    font-size:0.5em;
-    font-family: serif;
-    position: absolute;
-    top:1400px;
-    right:0px;
-    font-size:1.2em;
-    text-align: inherit;
-    border-left: 2px solid black;
-    padding-left: 5px;
-  }
-  #container{
-    display : flex;
-    flex-wrap: wrap;
-    width: 400px;
-    height:60px;
-    position: relative;
-    top: 500px;
-    left: 800px;
-    gap: 0.5em;
-  }
-  .buttons{
-    box-shadow: 13px 5px 5px rgba(4, 4, 4, 0.1);
-    background-color: rgb(248, 248, 111);
-    border-radius: 6px;
-    padding: 20px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .login:hover{
-    transform: scale(1.1);
-  
-  }
-  .signup:hover{
-    transform: scale(1.1);
-  }
-  button{
-    border: none;
-    background: transparent;
-    /*font-family: sans-serif;*/
-    font-size: 13px;
-    text-align: center;
-    font-weight: bold;
-  }
-  .startbutton button{
-    background: rgb(248, 248, 111);
-    border-radius: 15px;
-    width: 120px;
-    height:55px;
-    position: relative;
-    left: 50px;
-    top: -50px;
-    padding: 9px;
-    padding-left: 15px;
-  }
-  button:focus {
-  outline: none;
-}
-
-  .startbutton button:hover{
-    transform: scale(1.1);
-  }
-  .description{
-    position:absolute;
-    top: 850px;
-    right: 35px;
-    font-size: 1em;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-align: center;
-    color: rgb(89, 88, 88);
-  }
-  #heading{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1.3em;
-    color: rgb(8, 8, 8);
-  }
-  .footer {
-      position: absolute;
-      font-family: serif;
-      line-height:0.1em;
-      top: 1380px;
-      height: 150px;
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2em;
-      background-color: rgb(249, 252, 251);
-      padding: 50px;
-  }
-
-  #img1{
-    width: 110em;
-    height:64.5em;
-    position: absolute;
-    top:-250px;
-    right:0;    
-  }
-  #img2{
-    width: 50em;
-    height: 30em;
-    position: absolute;
-    top: 900px;
-    left:0px;
-    /* opacity: 0.5; */
-  }
-
-  #bio{
-    color:rgb(6, 6, 6);
-    text-decoration: none;
-    font-size: 1.3em;
-    position: absolute;
-    top:5.4em;
-  }
-  #bio:hover{
-    color: rgb(134, 144, 3);
-  }
-  .fa-brands{
-    font-size: 3em;
-    text-decoration: none;
-    color: black;
-  }
-  .fa-brands:hover{
-    transform: scale(1.4);
-  }
-  .custom-alert {
-    width: 300px; 
-    max-width: 90%; 
-    margin: 10px auto; 
-    padding: 10px; 
-}
-
-</style>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
-    <body>
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-            <h1>  Ethical Writes </h1>
-            <h2> Nothing is perfect</h2>
-    
-                <p class="text">  Where art <br>meets innovation and <br>passion meets <br>progress</p>
-                <p class = "text1"> Dive into the world of literature <br>explore the hidden depths and mysteries <br>
-                     find yourself surrounded by the imaginary world<br> painted by the colors of words and phrases </p>
-                <img id = "img1" src="../static/imagebg.png" alt=".">
-                </img>
-                <div id = "container">
-                  <div class = "buttons login">
-                        <a href="http://127.0.0.1:8000/login_user"> 
-                            <button type="button" >Login</button>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="{% url 'home' %}" class="nav-brand">Ethical <span>Writes</span></a>
+        <ul class="nav-links">
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'webpage1' %}">Explore</a></li>
+            <li><a href="{% url 'logout_user' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login_user' %}">Login</a></li>
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!-- Messages Alert -->
+    {% if messages %}
+    <div class="messages-container">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero" style="background-image: url('{% static 'ethicalBg.png' %}');">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p class="hero-tagline">A Literary Sanctuary</p>
+                    <h1 class="hero-title">Ethical <em>Writes</em></h1>
+                    <p class="hero-subtitle">Where Stories Find Their Voice</p>
+                    <p class="hero-description">
+                        A curated space for inspiring narratives, poetic musings, and thought-provoking
+                        prose from storytellers around the world. Every word matters here.
+                    </p>
+                    <div class="cta-buttons">
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'webpage1' %}" class="btn btn-primary">
+                            <i class="fas fa-feather-alt"></i> Begin Reading
                         </a>
-                  </div>
-                  <div class="buttons signup">
-                        <a href="http://127.0.0.1:8000/signup">
-                            <button type="button">Signup</button> 
+                        {% else %}
+                        <a href="{% url 'login_user' %}" class="btn btn-primary">
+                            <i class="fas fa-feather-alt"></i> Enter the Library
                         </a>
-                  </div>
+                        {% endif %}
+                    </div>
                 </div>
-                {% if user.is_authenticated %}
-                  <div class = "startbutton">
-                    <a href="{% url 'webpage1' %}" >
-                      <button type = "button" >Start</button>
-                    </a>
-                  </div>
-                {% else %}
-                  <div class = "startbutton">
-                    <a href="#container" >
-                      <button type = "button" >Get Started</button>
-                    </a>
-                  </div>
-                {% endif %}
-                {% for m in messages %}
-                  <div class="alert alert-warning alert-dismissible fade show custom-alert" role="alert">
-                      {{m}}
-                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                  </div>
-                {% endfor %}
-                <div class="description">
-                <p id = "heading" >LOOKING FOR CAPTIVATING STORIES, HUMOROUS SKITS, OR DEEP REFLECTIONS</p>
-                <p>Ethical Writes offers a platform for everyone to share and read unique perspectives.
-                  <br> Dive into a world of imagination, connect with others through words, and
-                  <br> explore the power of storytelling. Everyone has a voice, and 
-                  <br>every story matters – come read, share, and be inspired!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Literary Pillars -->
+    <section class="features" id="features">
+        <div class="section-header reveal">
+            <span class="flourish">✦ ✦ ✦</span>
+            <h2>The Pillars of Our Craft</h2>
+            <p>Every great story begins with a single word — here are the foundations that guide ours.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <i class="fas fa-book-open"></i>
                 </div>
-                 <img id = "img2" src="../static/bgpic2.png" alt=".">
-                </img>
-                        <div class="footer">
-                            <a id ="bio" href="myfirsthtml.html">Know about the creator</a>
-                            <a href="https://www.linkedin.com/">
-                              <i class="fa-brands fa-linkedin"></i>
-                            </a>
-                            <a href="https://www.facebook.com/" >
-                              <i class="fa-brands fa-facebook"></i>
-                            </a>
-                            <a href="https://github.com/">
-                              <i class="fa-brands fa-github"></i>
-                            </a>
-                        </div>  
-                        <p class="text2"> Discover a collection of inspiring, <br>creative, and thought-provoking writings 
-                              <br>from people all around the world<br> through ethical writes.</p>   
-    </body>
+                <h3>Captivating Stories</h3>
+                <p>Dive into the hidden depths and mysteries of compelling narratives that linger long after the last
+                    page.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <i class="fas fa-pen-nib"></i>
+                </div>
+                <h3>Deep Reflections</h3>
+                <p>Explore thought-provoking insights and perspectives that challenge, inspire, and illuminate.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Literary Community</h3>
+                <p>Connect with fellow writers and readers who share a love for the written word.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Creative Freedom</h3>
+                <p>Express yourself through skits, stories, poetry, and every form of creative prose.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Literary Quote Banner -->
+    <section class="quote-banner">
+        <div class="section-divider" style="margin-bottom: 30px;">
+            <span>✦</span>
+        </div>
+        <p class="quote-text reveal">
+            "There is no greater agony than bearing an untold story inside you."
+        </p>
+        <p class="quote-author reveal">— Maya Angelou</p>
+        <div class="section-divider" style="margin-top: 30px;">
+            <span>✦</span>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section" id="cta">
+        <div class="container-fluid">
+            <h2 class="reveal">Ready to Begin Your Journey?</h2>
+            <p class="reveal">Join a community of writers and readers bound by the love of literature</p>
+
+            {% if user.is_authenticated %}
+            <div class="cta-buttons reveal">
+                <a href="{% url 'webpage1' %}" class="btn btn-primary">
+                    <i class="fas fa-arrow-right"></i> Start Exploring
+                </a>
+                <a href="{% url 'logout_user' %}" class="btn btn-outline">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+            {% else %}
+            <div class="cta-buttons reveal">
+                <a href="{% url 'login_user' %}" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+                <a href="{% url 'signup' %}" class="btn btn-outline">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container-fluid">
+            <div class="about-content">
+                <div class="about-text reveal">
+                    <span class="flourish" style="text-align:left; margin-left:0;">✦ ✦ ✦</span>
+                    <h2>Why Choose Ethical Writes?</h2>
+                    <p>
+                        Ethical Writes is more than just a platform — it's a literary movement. We believe that every
+                        voice matters,
+                        and every story has the power to inspire, educate, and transform. Our community of writers and
+                        readers
+                        spans across continents, united by a passion for authentic storytelling and creative expression.
+                    </p>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-feather"></i> Share your authentic stories</li>
+                        <li><i class="fas fa-globe-americas"></i> Connect with a global community</li>
+                        <li><i class="fas fa-eye"></i> Discover diverse perspectives</li>
+                        <li><i class="fas fa-seedling"></i> Grow as a writer and reader</li>
+                    </ul>
+                </div>
+                <div class="about-image reveal">
+                    <img src="{% static 'bgpic2.png' %}" alt="About Ethical Writes" class="img-responsive">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Ethical Writes</h4>
+                    <p>Sharing stories, inspiring minds, and building a sanctuary for the written word — by creators,
+                        for creators.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'login_user' %}">Login</a></li>
+                        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'webpage1' %}">Explore Stories</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="myfirsthtml.html" title="Creator Bio">
+                            <i class="fas fa-user"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ethical Writes. All rights reserved. | A sanctuary for the literary soul.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 60) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal animations
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+</body>
+
 </html>

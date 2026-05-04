@@ -1,118 +1,259 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login Form</title>
-    <style>
-body
-{
-    background-color:#ceeaf8ba;
-    font-family: 'Arial';
-    background-image: url('../static/bitmap.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-}
-.login{
-        width: 600px;
-        height: auto;
-        background: white;
-        border-radius: 15px ;
-        box-shadow: 13px 8px 5px rgba(4, 4, 4, 0.1);
-        padding: 20px;
-        margin: auto;
-        /*opacity: 0.7;*/     
-}
-h2{
-    text-align: center;
-    color: #080808;
-    font-family:Arial, Helvetica, sans-serif ;
-    font-weight: bold;
-    font-size: 50px;;
-}
-label{
-    color: #070707;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    position: relative;
-    left: 50px;
-}
-input{
-      padding: 8px;
-      border-radius: 15px;
-      background-color:  rgb(219, 244, 251);
-      border: none;
-      margin-left: 50px;
-      width: 460px;
-}
-input:hover{
-    background-color: rgb(213, 217, 204);
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up — Ethical Writes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
-button{
-      background-color: rgb(248, 248, 111);
-      color: black;
-      border: none;
-      border-radius: 15px;
-      height: 39px;
-      width: 300px;
-      margin-top: 30px;
-      margin-left: 150px;
-      font-weight: bold;
-}
-button:focus {
-    outline: none;
-}
-button:hover{
-    transform: scale(1.1);
-}
-select{
-    position: relative;
-    margin-left: 50px;
-    background-color: rgb(219, 244, 251);
-    border-radius: 5px;
-    border: none;
-    height: 20px;
-}
-select:hover{
-    transform: scale(1.1);
-}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    </style>
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background-image: url("{% static 'ethicalBg.png' %}");
+      background-color: #1a150f;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-blend-mode: overlay;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(44, 36, 24, 0.85) 0%, rgba(58, 42, 30, 0.75) 40%, rgba(44, 36, 24, 0.88) 100%);
+      z-index: 0;
+    }
+
+    .signup-container {
+      position: relative;
+      z-index: 1;
+      background: rgba(250, 246, 240, 0.95);
+      backdrop-filter: blur(10px);
+      width: 100%;
+      max-width: 520px;
+      padding: 45px 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(201, 169, 78, 0.2);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .signup-container h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.4rem;
+      text-align: center;
+      font-weight: 700;
+      color: #2c2418;
+      margin-bottom: 8px;
+    }
+
+    .signup-subtitle {
+      text-align: center;
+      color: #8b7d6b;
+      font-style: italic;
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: #5c4a3a;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 8px;
+      background-color: #f0e8d8;
+      border: 1px solid rgba(201, 169, 78, 0.2);
+      font-family: 'Lora', serif;
+      font-size: 0.95rem;
+      color: #2c2418;
+      transition: all 0.3s ease;
+      appearance: auto;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #c9a94e;
+      background-color: #fff8ef;
+      box-shadow: 0 0 0 3px rgba(201, 169, 78, 0.15);
+    }
+
+    .form-group input:hover,
+    .form-group select:hover {
+      background-color: #e8dcc8;
+    }
+
+    .form-group input::placeholder {
+      color: #8b7d6b;
+      font-style: italic;
+    }
+
+    .btn-signup {
+      background: linear-gradient(135deg, #c9a94e, #b8942f);
+      color: #2c2418;
+      border: none;
+      border-radius: 30px;
+      padding: 13px 20px;
+      cursor: pointer;
+      margin-top: 10px;
+      width: 100%;
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: all 0.3s ease;
+    }
+
+    .btn-signup:hover {
+      background: linear-gradient(135deg, #e8d48b, #c9a94e);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(201, 169, 78, 0.3);
+    }
+
+    .btn-signup:focus {
+      outline: 2px solid #c9a94e;
+      outline-offset: 2px;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 24px;
+      color: #8b7d6b;
+      font-size: 0.9rem;
+    }
+
+    .login-link a {
+      color: #7a2e3b;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .login-link a:hover {
+      color: #c9a94e;
+    }
+
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(250, 246, 240, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      z-index: 2;
+      transition: color 0.3s ease;
+    }
+
+    .back-home:hover {
+      color: #c9a94e;
+      text-decoration: none;
+    }
+
+    .error-msg {
+      color: #7a2e3b;
+      background: rgba(122, 46, 59, 0.1);
+      border: 1px solid rgba(122, 46, 59, 0.2);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+    }
+
+    .flourish {
+      text-align: center;
+      color: #c9a94e;
+      letter-spacing: 0.5em;
+      margin-bottom: 20px;
+      opacity: 0.5;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      .signup-container {
+        padding: 30px 24px;
+      }
+      .signup-container h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="login">
-    <h2> Sign Up</h2>
-    <form  action="signup" method="POST">
-        {% csrf_token %}
-        <label>Name
-        </label><br><br>
-        <input type="text" name="username" id="name" placeholder="Name">
-        <br><br>
-        <label>Password
-        </label><br><br>
-        <input type="Password" name="password" id="password" placeholder="Password">
-        <br><br>
-        <label>Email
-        </label><br><br>
-        <input type="Email" name="email" id="email" placeholder="Enter your email">
-        <br><br>
-        <label>Phone
-        </label><br><br>
-        <input type="text" name="phone" id="phone" placeholder="">
-        <br><br>
-        <label>Continent
-        </label><br><br>
-        <select name = "continent">
-            <option>Asia</option>
-            <option>Europe</option>
-            <option>Australia</option>
-            <option>Africa</option>
-            <option>Antartica</option>
-            <option>South America</option>
-            <option>North America</option>
+  <a href="{% url 'home' %}" class="back-home">
+    <i class="fas fa-arrow-left"></i> Home
+  </a>
+
+  <div class="signup-container">
+    <div class="flourish">✦ ✦ ✦</div>
+    <h2>Join Us</h2>
+    <p class="signup-subtitle">Begin your literary journey today</p>
+
+    {% if error %}
+      <p class="error-msg"><i class="fas fa-exclamation-circle"></i> {{ error }}</p>
+    {% endif %}
+
+    <form action="/signup/" method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="name"><i class="fas fa-user"></i> Name</label>
+        <input type="text" name="username" id="name" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label for="password"><i class="fas fa-lock"></i> Password</label>
+        <input type="password" name="password" id="password" placeholder="Choose a password" required>
+      </div>
+      <div class="form-group">
+        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+        <input type="email" name="email" id="email" placeholder="Your email address" required>
+      </div>
+      <div class="form-group">
+        <label for="phone"><i class="fas fa-phone"></i> Phone</label>
+        <input type="text" name="phone" id="phone" placeholder="Your phone number">
+      </div>
+      <div class="form-group">
+        <label for="continent"><i class="fas fa-globe-americas"></i> Continent</label>
+        <select name="continent" id="continent">
+          <option>Asia</option>
+          <option>Europe</option>
+          <option>Australia</option>
+          <option>Africa</option>
+          <option>Antarctica</option>
+          <option>South America</option>
+          <option>North America</option>
         </select>
-        <br><br>
-        <button class="submit" type="submit">Signup</button>
+      </div>
+      <button class="btn-signup" type="submit">
+        <i class="fas fa-feather-alt"></i> Create Account
+      </button>
     </form>
-</div>
+    <p class="login-link">Already have an account? <a href="{% url 'login_user' %}">Login</a></p>
+  </div>
 </body>
 </html>
