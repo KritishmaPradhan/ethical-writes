@@ -128,10 +128,95 @@
             border-radius: 2px;
         }
 
+        /* ---- Work Submission Form ---- */
+        .work-submission-section {
+            background: #fff8ef;
+            padding: 40px 20px;
+            margin: 0 auto 40px;
+            max-width: 900px;
+        }
+
+        .submission-form-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(201, 169, 78, 0.2);
+            box-shadow: 0 0 15px rgba(44, 36, 24, 0.08);
+            line-height: 2.3;
+        }
+
+        .work-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .work-form label {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c2418;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .work-textarea {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 1rem;
+            color: #2c2418;
+            background-color: #faf6f0;
+            border: 1px solid rgba(201, 169, 78, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+
+        .work-textarea:focus {
+            background-color: #ffffff;
+            border-color: #c9a94e;
+            box-shadow: 0 0 8px rgba(201, 169, 78, 0.2);
+            outline: none;
+        }
+
+        .work-textarea::placeholder {
+            color: #8b7d6b;
+            opacity: 0.7;
+        }
+
+        .form-text {
+            display: block;
+            margin-top: 5px;
+            color: #8b7d6b !important;
+            font-style: italic;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #7a2e3b, #c9a94e);
+            color: #ffffff;
+            border: none;
+            padding: 12px 35px;
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 25px rgba(122, 46, 59, 0.403);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(122, 46, 59, 0.4);
+            color: #ffffff;
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
         /* ---- Genre Cards Grid ---- */
         .genres-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 24px;
             padding: 0 40px 60px;
             max-width: 1200px;
@@ -145,20 +230,8 @@
             padding: 0;
             overflow: hidden;
             transition: all 0.35s ease;
-            box-shadow: 0 4px 15px rgba(44, 36, 24, 0.06);
+            box-shadow: 0 0 10px rgba(44, 36, 24, 0.29);
             position: relative;
-        }
-
-        .genre-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(to right, #7a2e3b, #c9a94e);
-            border-radius: 0 0 4px 4px;
         }
 
         .genre-card:hover {
@@ -207,15 +280,115 @@
             text-align: center;
         }
 
-        /* Color accents per genre */
-        .genre-mystery { border-left: 4px solid #5c4a3a; }
-        .genre-emotional { border-left: 4px solid #7a2e3b; }
-        .genre-reminiscence { border-left: 4px solid #6b4e99; }
-        .genre-thought { border-left: 4px solid #c9a94e; }
-        .genre-poetry { border-left: 4px solid #3a5a40; }
-        .genre-fable { border-left: 4px solid #c27a7a; }
-        .genre-satire { border-left: 4px solid #2c3e6b; }
-        .genre-memoir { border-left: 4px solid #b8942f; }
+        /* ---- User Works Display ---- */
+        .user-works-section {
+            background: #faf6f0;
+            padding: 40px 20px;
+            margin: 40px auto 60px;
+        }
+
+        .user-works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            padding: 0 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .user-work-card {
+            background: #ffffff;
+            border: 1px solid rgba(201, 169, 78, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.35s ease;
+            box-shadow: 0 2px 10px rgba(44, 36, 24, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .user-work-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(44, 36, 24, 0.15);
+            border-color: #c9a94e;
+        }
+
+        .work-card-header {
+            margin-bottom: 16px;
+            flex-grow: 0;
+        }
+
+        .work-card-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2c2418;
+            margin: 0 0 8px 0;
+            word-break: break-word;
+        }
+
+        .work-card-author {
+            font-size: 0.95rem;
+            color: #7a2e3b;
+            font-style: italic;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .work-card-meta {
+            font-size: 0.85rem;
+            color: #8b7d6b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 12px;
+        }
+
+        .work-card-content {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 0.95rem;
+            color: #2c2418;
+            line-height: 1.6;
+            margin: 16px 0;
+            flex-grow: 1;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;
+            word-break: break-word;
+        }
+
+        .work-card-footer {
+            margin-top: 16px;
+            padding-top: 12px;
+            /* border-top: 1px solid rgba(201, 169, 78, 0.1); */
+            text-align: center;
+            background: linear-gradient(0deg, #8c550c3d, #ffffff);
+            border-radius: 8px;
+            padding: 12px 0;
+        }
+
+        .read-more-btn {
+            color: #7a2e3b;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            color: #c9a94e;
+            text-decoration: underline;
+        }
+
+        .no-works-message {
+            text-align: center;
+            padding: 40px 20px;
+            color: #8b7d6b;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
 
         /* ---- Footer ---- */
         .page-footer {
@@ -243,13 +416,25 @@
             .page-header { padding: 14px 20px; }
             .page-header .brand { font-size: 1.2rem; }
             .genres-grid { padding: 0 20px 40px; gap: 16px; }
+            .user-works-grid { padding: 0 20px; gap: 16px; }
             .title-section { padding: 30px 20px 10px; }
             .section-label { font-size: 1.4rem; padding: 15px 20px 30px; }
+            .work-submission-section { padding: 30px 20px; }
+            .submission-form-container { padding: 20px; }
+            .work-textarea { font-size: 0.95rem; padding: 12px; }
+            .work-card-title { font-size: 1.2rem; }
+            .work-card-content { -webkit-line-clamp: 4; }
         }
 
         @media (max-width: 480px) {
             .genres-grid { grid-template-columns: 1fr; }
+            .user-works-grid { grid-template-columns: 1fr; }
             .header-actions a { font-size: 0.82rem; padding: 6px 12px; }
+            .work-form label { font-size: 1rem; }
+            .work-textarea { rows: 8; }
+            .btn-submit { padding: 10px 25px; font-size: 0.95rem; }
+            .work-card-title { font-size: 1.1rem; }
+            .work-card-content { -webkit-line-clamp: 3; }
         }
     </style>
 </head>
@@ -310,45 +495,78 @@
                 <span class="genre-desc">Echoes of memory</span>
             </a>
         </div>
+    </div>
 
-        <div class="genre-card genre-thought">
-            <a href="{% url 'webpage4'%}">
-                <i class="fas fa-lightbulb genre-icon"></i>
-                <span class="genre-name">Thought</span>
-                <span class="genre-desc">Reflections and musings</span>
-            </a>
+    <!-- User Works Display Section -->
+    <div class="user-works-section">
+        <h2 class="section-label">Community Works</h2>
+        {% if user_works %}
+        <div class="user-works-grid">
+            {% for work in user_works %}
+            <div class="user-work-card">
+                <div class="work-card-header">
+                    <h3 class="work-card-title">{{ work.title|truncatewords:10 }}</h3>
+                    <p class="work-card-author">by {{ work.author }}</p>
+                    <div class="work-card-meta">
+                        <span><strong>@{{ work.username }}</strong></span>
+                        <span>{{ work.submitted_date|date:"M d, Y" }}</span>
+                    </div>
+                </div>
+                <div class="work-card-content">
+                    {{ work.freewriting|truncatewords:60 }}
+                </div>
+                <div class="work-card-footer">
+                    <a href="{% url 'view_user_work' work.id %}" class="read-more-btn">Read More →</a>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-
-        <div class="genre-card genre-poetry">
-            <a href="{% url 'webpage4'%}">
-                <i class="fas fa-feather-alt genre-icon"></i>
-                <span class="genre-name">Poetry</span>
-                <span class="genre-desc">Verses from the heart</span>
-            </a>
+        {% else %}
+        <div class="no-works-message">
+            <p>No community works yet. Be the first to share your creation!</p>
         </div>
+        {% endif %}
+    </div>
 
-        <div class="genre-card genre-fable">
-            <a href="{% url 'webpage4'%}">
-                <i class="fas fa-dragon genre-icon"></i>
-                <span class="genre-name">Fable</span>
-                <span class="genre-desc">Timeless tales with meaning</span>
-            </a>
-        </div>
 
-        <div class="genre-card genre-satire">
-            <a href="{% url 'webpage4'%}">
-                <i class="fas fa-theater-masks genre-icon"></i>
-                <span class="genre-name">Satire</span>
-                <span class="genre-desc">Wit and social commentary</span>
-            </a>
-        </div>
-
-        <div class="genre-card genre-memoir">
-            <a href="{% url 'webpage4'%}">
-                <i class="fas fa-book genre-icon"></i>
-                <span class="genre-name">Memoir</span>
-                <span class="genre-desc">Personal stories, real lives</span>
-            </a>
+     <!-- Work Submission Form -->
+    <div class="work-submission-section">
+        <h2 class="section-label">Share Your Work</h2>
+        <div class="submission-form-container">
+            <form method="POST" class="work-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">Title of Your Work:</label>
+                    <input 
+                        type="text" 
+                        id="title" 
+                        name="title" 
+                        class="form-control" 
+                        placeholder="Give your creation a title that captures its essence..."
+                        required
+                    >
+                    <label for = "author">Author Name:</label>
+                    <input
+                        type="text"
+                        id="author"
+                        name="author"
+                        class="form-control"
+                        placeholder="Your name or pen name..."
+                        required
+                    >
+                    <label for="freewriting">Your Freewriting:</label>
+                    <textarea 
+                        id="freewriting" 
+                        name="freewriting" 
+                        class="form-control work-textarea" 
+                        placeholder="Type or paste your work here... Let your thoughts flow freely!"
+                        rows="10"
+                        required
+                    ></textarea>
+                    <small class="form-text text-muted">Share your thoughts, stories, or reflections.</small>
+                </div>
+                <button type="submit" class="btn btn-submit">Submit Your Work</button>
+            </form>
         </div>
     </div>
 

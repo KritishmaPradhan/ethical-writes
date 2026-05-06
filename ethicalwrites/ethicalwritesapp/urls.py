@@ -26,5 +26,6 @@ urlpatterns = [
     path('webpage1', views.webpage1, name= "webpage1"),
     path('webpage2', views.webpage2, name= "webpage2"),
     path('webpage3', views.webpage3, name= "webpage3"),
-    path('webpage4', views.webpage4, name= "webpage4")
+    path('webpage4', views.webpage4, name= "webpage4"),
+    path('work/<int:work_id>/', views.view_user_work, name='view_user_work')
 ]

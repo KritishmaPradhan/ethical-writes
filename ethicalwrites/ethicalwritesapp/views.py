@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db import IntegrityError
 from django.views.decorators.http import require_http_methods
-from ethicalwritesapp.models import UserInfo
+from ethicalwritesapp.models import UserInfo, UserWork
 
 
 def index(request):
@@ -104,10 +104,41 @@ def logout_user(request):
 
 
 @login_required(login_url='login_user')
-@require_http_methods(["GET"])
+@require_http_methods(["GET", "POST"])
 def webpage1(request):
-    """Protected page 1 - requires authentication."""
-    return render(request, 'webpage1.html')
+    """Protected page 1 - requires authentication. Handles work submission and displays user works."""
+    if request.method == 'POST':
+        freewriting = request.POST.get('freewriting', '').strip()
+        title = request.POST.get('title', '').strip()
+        author = request.POST.get('author', '').strip()
+        
+        if not freewriting:
+            messages.error(request, "Please enter some text before submitting.")
+            return redirect('webpage1')
+        
+        try:
+            # Create a new UserWork entry
+            UserWork.objects.create(
+                user=request.user,
+                username=request.user.username,
+                freewriting=freewriting,
+                title=title,
+                author=author
+            )
+            messages.success(request, "Your work has been submitted successfully!")
+            return redirect('webpage1')
+        except Exception as e:
+            messages.error(request, "An error occurred while submitting your work. Please try again.")
+            return redirect('webpage1')
+    
+    # Fetch all user works from the database, ordered by most recent first
+    user_works = UserWork.objects.all().order_by('-submitted_date')
+    
+    context = {
+        'user_works': user_works
+    }
+    
+    return render(request, 'webpage1.html', context)
 
 
 @login_required(login_url='login_user')
@@ -129,3 +160,18 @@ def webpage3(request):
 def webpage4(request):
     """Protected page 4 - requires authentication."""
     return render(request, 'webpage4.html')
+
+
+@login_required(login_url='login_user')
+@require_http_methods(["GET"])
+def view_user_work(request, work_id):
+    """Display full view of a single user work."""
+    try:
+        user_work = UserWork.objects.get(id=work_id)
+        context = {
+            'user_work': user_work
+        }
+        return render(request, 'webpageuserwork.html', context)
+    except UserWork.DoesNotExist:
+        messages.error(request, "The work you're looking for doesn't exist.")
+        return redirect('webpage1')
