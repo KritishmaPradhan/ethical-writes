@@ -1,91 +1,230 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>next page of webpage</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>God? A Myth or a Mystery — Ethical Writes</title>
+    
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-    background-image: url('../static/page4.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: right;
-     }
-*{
-    box-sizing: border-box;
-}
-.paragraph1 p{
-    color: rgb(3, 0, 9);
-    font-size: 1.2em;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-style: italic;
-    text-align: left;
+            background-image: linear-gradient(rgba(26, 21, 15, 0.8), rgba(26, 21, 15, 0.88)), url('{% static "page4.jpg" %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            font-family: 'Lora', Georgia, serif;
+            color: #faf6f0;
+            display: flex;
+            flex-direction: column;
+        }
 
-}
-.paragraph2 p{
-    color: rgb(4, 4, 4);
-    font-size: 1.2em;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-decoration: wavy;
-    text-align: justify;
-    margin: 25px;
-    margin-top: 27px;
-    /*line-height: normal;*/
-    border: 3px solid rgb(186, 39, 88);
-    width: 650px;
-    height: 500px;
-    padding: 40px;
-}
-.paragraph3 p{
-    color: rgb(4, 4, 4);
-    font-size: 1.2em;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-decoration: wavy;
-    text-align: justify;
-    margin: 25px;
-    border: 3px solid rgb(158, 35, 140);
-    width: 650px;
-    height: 500px;
-    padding: 40px;
-}
-.block{
-    display:flex;
-}
+        /* Container & Main Layout */
+        .content-container {
+            max-width: 1300px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 60px 40px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: #faf6f0;
+            text-align: center;
+            margin-bottom: 15px;
+            letter-spacing: 0.02em;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .title-flourish {
+            color: #c9a94e;
+            font-size: 1.2rem;
+            letter-spacing: 0.4em;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            text-align: center;
+        }
+
+        /* Question Section */
+        .paragraph1 {
+            background: rgba(201, 169, 78, 0.08);
+            border: 1px solid rgba(201, 169, 78, 0.3);
+            border-radius: 8px;
+            padding: 24px 30px;
+            max-width: 800px;
+            width: 100%;
+            margin-bottom: 50px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .paragraph1 p {
+            color: #e8d48b;
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        /* Columns Block */
+        .block {
+            display: flex;
+            gap: 40px;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .paragraph2, .paragraph3 {
+            flex: 1;
+            min-width: 320px;
+            max-width: 580px;
+            background: rgba(250, 246, 240, 0.94);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .paragraph2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #7a2e3b, #c9a94e);
+        }
+
+        .paragraph3::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #c9a94e, #7a2e3b);
+        }
+
+        .paragraph2:hover, .paragraph3:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(201, 169, 78, 0.2);
+        }
+
+        .paragraph2 p, .paragraph3 p {
+            color: #2c2418;
+            font-size: 1.08rem;
+            line-height: 1.9;
+            text-align: justify;
+            padding: 40px;
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+        }
+
+        /* Dropcap effect for a classic literary feel */
+        .paragraph2 p::first-letter, .paragraph3 p::first-letter {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 3.2rem;
+            float: left;
+            line-height: 0.8;
+            margin-right: 12px;
+            margin-top: 4px;
+            font-weight: 700;
+            color: #7a2e3b;
+        }
+
+        /* Footer styling */
+        .page-footer {
+            background: rgba(20, 16, 11, 0.95);
+            text-align: center;
+            padding: 24px;
+            color: rgba(250, 246, 240, 0.5);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(201, 169, 78, 0.2);
+            margin-top: auto;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .content-container { padding: 40px 24px; }
+            .block { gap: 30px; }
+            .paragraph2 p, .paragraph3 p { padding: 30px; font-size: 1.02rem; }
+        }
+
+        @media (max-width: 576px) {
+            .content-container { padding: 30px 16px; }
+            .paragraph1 { padding: 20px; margin-bottom: 30px; }
+            .paragraph2, .paragraph3 { margin-bottom: 20px; }
+            .paragraph2 p, .paragraph3 p { padding: 24px; font-size: 0.96rem; }
+        }
     </style>
-    </head>
+</head>
+<body>
 
-    <body>
-        <h1> God ? A Myth or a Mystery</h1>
-            <div class='paragraph1'>
-                <p> Do you believe in God? 
-                    If Yes. 
-                    How would you describe it?
-                    If No. 
-                    Why do you think the term exists?
-                </p>
-            </div>
+    <!-- Header Component -->
+    {% include 'header.html' with active_page='webpage2' %}
+
+    <!-- Main Content Container -->
+    <div class="content-container">
+        <h1>God? A Myth or a Mystery</h1>
+        <div class="title-flourish">✦ ✦ ✦</div>
+        
+        <div class="paragraph1">
+            <p>
+                Do you believe in God? <br>
+                If yes, how would you describe it? <br>
+                If no, why do you think the term exists?
+            </p>
+        </div>
 
         <div class="block">
-            <div class='paragraph2'>
+            <div class="paragraph2">
                 <p>
-                    I don’t know where this belief came from , who was the first one to introduce it, how the existence of someone we never saw or touched or felt became a superficial power and an impactful energy that influenced peoples lives. 
-                    Wonder what God is A belief, An object , An emotion, A person, A divine energy, A universe, Creator, Destroyer, or Nothing. Growing up I was told God lies in everything and give us it’s divine appearance in any form, maybe The stone we see on the roadside or the air we breathe every day or the person next to us with a smile on their face or the tree that gives us shade from the sun or the flower that blooms to give the nature a beautiful sight. 
-                    
-                    <br>I believe God is the energy every human being possesses within themselves that drives them to feel things, to do things, and a motivation that consoles people that everything will be Fine in life. 
-                    God can be an entity we share our grief, share our happiness, our sins, our commitments, our good and bad deeds, our anger, our dissatisfaction, our secrets without any fear of being judged, mistaken, questioned. 
+                    I don’t know where this belief came from, who was the first one to introduce it, how the existence of someone we never saw or touched or felt became a superficial power and an impactful energy that influenced people's lives. Wonder what God is—a belief, an object, an emotion, a person, a divine energy, a universe, creator, destroyer, or nothing. Growing up I was told God lies in everything and gives us its divine appearance in any form, maybe the stone we see on the roadside, the air we breathe every day, the person next to us with a smile on their face, the tree that gives us shade from the sun, or the flower that blooms to give nature a beautiful sight.
+                    <br><br>
+                    I believe God is the energy every human being possesses within themselves that drives them to feel things, to do things, and a motivation that consoles people that everything will be fine in life. God can be an entity we share our grief, our happiness, our sins, our commitments, our good and bad deeds, our anger, our dissatisfaction, and our secrets with, without any fear of being judged, mistaken, or questioned.
                 </p>
             </div> 
 
-            <div class='paragraph3'>
+            <div class="paragraph3">
                 <p>
-                    Fear of God? Yes deep down everybody fears God, but why be afraid of something whose existence is barely known and debatable. To clear it out,  People actually fear  the consequences , ‘The consequences of their own actions ‘  because somehow everyone knows the energy that they radiate will somehow  revolve around the universe and find its way to you. ‘ Karma is real’ the negative energy or deeds that you shower upon someone will one day return to you in some or other form , same thing happens with the good energy that you possess.  
-                    
-                    <br>Does God really listen to us? Does it really fulfil our wishes and prayers? Well that’s questionable because everything we beg for in front of God is not always fulfilled. But sometimes we get exactly what we have wished for , is it because of God? , is it because God listened our prayers? 
-                    Well as said earlier God is the divine energy within us so isn’t  praying to God is just us praying oneself. 
-                    Isn’t it us’ that is responsible for our actions and the consequences of our actions? Good things happen to us because we worked for it  and believed that it is going to happen. Same goes with the bad things that happen to us or maybe The Krama’  that’s just finding its way to you
+                    Fear of God? Yes, deep down everybody fears God, but why be afraid of something whose existence is barely known and debatable. To clear it out, people actually fear the consequences—the consequences of their own actions—because somehow everyone knows the energy that they radiate will somehow revolve around the universe and find its way back to them. "Karma is real." The negative energy or deeds that you shower upon someone will one day return to you in some form, and the same happens with the good energy that you possess.
+                    <br><br>
+                    Does God really listen to us? Does it really fulfill our wishes and prayers? Well, that’s questionable because everything we beg for in front of God is not always fulfilled. But sometimes we get exactly what we have wished for—is it because of God? Is it because God listened to our prayers? Well, as said earlier, God is the divine energy within us, so isn’t praying to God just us praying to ourselves? Isn’t it "us" that is responsible for our actions and the consequences of our actions? Good things happen to us because we worked for it and believed that it was going to happen.
                 </p>
             </div>
         </div>
-    </body>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>&copy; 2026 Ethical Writes. All rights reserved. | A sanctuary for the literary soul.</p>
+    </footer>
+
+</body>
 </html>

@@ -1,72 +1,220 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>next page of webpage1</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Friend I Lost — Ethical Writes</title>
+    
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
     <style>
-        body {
-    background-image: url('../static/page6.jpg');
-    background-repeat:no-repeat;
-    background-size:auto;
-    background-position: 450px 70px;
-    border-style:groove;
-    padding: 30px
-     }
-.block {
-    color: rgb(38, 3, 62);
-    font-size: 1.2em;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-align: justify;
-    line-height: 7mm;
-    display:flex;
-}
-.block .p1{
-     padding: 40px;
-     border: 2.5px solid rgb(205, 205, 14);;
-     margin-right:230px;
-     border-radius: 5px;
-}
-.block .p2{
-    padding: 40px;
-    border: 2.5px solid rgb(205, 205, 14);
-    margin-left:350px;
-    border-radius: 5px;
-}
-h1{
-    color: rgb(1, 1, 37);
-    font-size: 2.5em;
-    font-family:Georgia,serif;
-    font-style: oblique;
-}
-    </style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 
-    </head>
-    <body>
-        <h1>The friend I Lost</h1>
-            <div class="block">
-                <div class='p1'> 
-                    <p>
-                        Billions of people scattered here and there and Destiny …on well Destiny brought two souls together. From Complete strangers to ones who Complete each other two masses 
-                        of the universe make a bond. How wonderful the universe is, that sends an eternal energy, so therapeutic, a morning charm, an energy that matches yours , a soulful companion 
-                        and packages of jokes I call them A Friend not just friend but  A Best Friend’ .
-                        Remembering that time someone came to my life to fill up that void, made a special place and Vanished…….. crumbling down its sensitive walls leaving all empty all again. Oh! what tragedy I lost you….
-                        <br>To the friend, remember how we talked about being each other’s muse , the symphony to our tunes, the pinkie promises we made , your jokes I hate, to laugh at your ugly fall, to help you rise,
-                        to see each other grow old  feeble yet cool, to see you break your heart for some daft  who couldn’t even make you laugh. 
-                    </p>
-                </div>
-                
-                <dic class='p2'>
-                    <p>
-                        Where do I search your presence, the wind that carried our laughter, the playground where our foot prints lie, the cloud that saw us grow and the walls that heard our secrets.
-                        <br>What a fool of me for letting u go so easily, pushing myself into darkness of life. What a disgrace to not let my ego aside and find your path. Remember our schoolmates? ,
-                        still asks me about you ,how will I answer them when I am short of words, my heart beats faster than ever, the guilt surrounds me as I was the one for letting you go. 
-                        Oh well what a stupid person I was, distancing myself from you never knowing I was losing a part of me, an eternity, a core memory. Wish someone warned me what silly mistake was I making , 
-                        the boiling young blood, that developing brain maybe maybe……was not that capable of understanding that a childhood innocence would lead to a burning guilt that haunts the adult self.
-                        <br>How  I know things could never go back the same but waiting for that day we meet again and live the moment we lost somehow……
-                        <br>Wish we could cross paths one more Time…… your heart closer to Mine. Fill the air with laughter, scattered mist with memories that bliss. 
-                    </p>
-                </div>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: linear-gradient(rgba(24, 15, 30, 0.84), rgba(15, 8, 20, 0.94)), url('{% static "page6.jpg" %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            font-family: 'Lora', Georgia, serif;
+            color: #faf6f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Container & Main Layout */
+        .content-container {
+            max-width: 1300px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 60px 40px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: #faf6f0;
+            text-align: center;
+            margin-bottom: 12px;
+            letter-spacing: 0.02em;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-style: italic;
+            color: #c9a94e;
+            text-align: center;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .title-flourish {
+            color: #c9a94e;
+            font-size: 1.2rem;
+            letter-spacing: 0.4em;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            text-align: center;
+        }
+
+        /* Block layout */
+        .block {
+            display: flex;
+            gap: 40px;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .p1, .p2 {
+            flex: 1;
+            min-width: 320px;
+            max-width: 580px;
+            background: rgba(250, 246, 240, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(201, 169, 78, 0.25);
+        }
+
+        .p1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #7a2e3b, #c9a94e);
+        }
+
+        .p2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #c9a94e, #7a2e3b);
+        }
+
+        .p1:hover, .p2:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(201, 169, 78, 0.25);
+            border-color: rgba(201, 169, 78, 0.45);
+        }
+
+        .p1 p, .p2 p {
+            color: #2c2418;
+            font-size: 1.08rem;
+            line-height: 1.9;
+            text-align: justify;
+            padding: 40px;
+            margin: 0;
+            font-family: 'Lora', Georgia, serif;
+        }
+
+        /* Classic drop cap for poetry styling */
+        .p1 p::first-letter, .p2 p::first-letter {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 3.2rem;
+            float: left;
+            line-height: 0.8;
+            margin-right: 12px;
+            margin-top: 4px;
+            font-weight: 700;
+            color: #7a2e3b;
+        }
+
+        /* Footer styling */
+        .page-footer {
+            background: rgba(16, 8, 20, 0.96);
+            text-align: center;
+            padding: 24px;
+            color: rgba(250, 246, 240, 0.5);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(201, 169, 78, 0.2);
+            margin-top: auto;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .content-container { padding: 40px 24px; }
+            .block { gap: 30px; }
+            .p1 p, .p2 p { padding: 30px; font-size: 1.02rem; }
+        }
+
+        @media (max-width: 576px) {
+            .content-container { padding: 30px 16px; }
+            .p1, .p2 { margin-bottom: 20px; }
+            .p1 p, .p2 p { padding: 24px; font-size: 0.96rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Component -->
+    {% include 'header.html' with active_page='webpage4' %}
+
+    <!-- Main Content Container -->
+    <div class="content-container">
+        <h1>The Friend I Lost</h1>
+        <p class="subtitle">A bittersweet memory of a childhood bond faded in time</p>
+        <div class="title-flourish">✦ ✦ ✦</div>
+        
+        <div class="block">
+            <div class="p1"> 
+                <p>
+                    Billions of people scattered here and there and Destiny …on well Destiny brought two souls together. From Complete strangers to ones who Complete each other two masses 
+                    of the universe make a bond. How wonderful the universe is, that sends an eternal energy, so therapeutic, a morning charm, an energy that matches yours, a soulful companion 
+                    and packages of jokes I call them "A Friend"—not just a friend but "A Best Friend".
+                    Remembering that time someone came to my life to fill up that void, made a special place and vanished... crumbling down its sensitive walls leaving all empty all again. Oh, what a tragedy that I lost you.
+                    <br><br>
+                    To the friend, remember how we talked about being each other’s muse, the symphony to our tunes, the pinkie promises we made, your jokes I hate, to laugh at your ugly fall, to help you rise,
+                    to see each other grow old, feeble yet cool, to see you break your heart for some daft who couldn’t even make you laugh. 
+                </p>
             </div>
-    </body>
+            
+            <div class="p2">
+                <p>
+                    Where do I search your presence? The wind that carried our laughter, the playground where our footprints lie, the cloud that saw us grow, and the walls that heard our secrets.
+                    <br><br>
+                    What a fool of me for letting you go so easily, pushing myself into the darkness of life. What a disgrace to not let my ego aside and find your path. Remember our schoolmates? They still ask me about you. How will I answer them when I am short of words? My heart beats faster than ever, the guilt surrounds me as I was the one responsible for letting you go.
+                    Oh well, what a stupid person I was, distancing myself from you, never knowing I was losing a part of me, an eternity, a core memory. Wish someone had warned me what a silly mistake I was making—the boiling young blood, that developing brain... maybe was not that capable of understanding that a childhood innocence would lead to a burning guilt that haunts the adult self.
+                    <br><br>
+                    How I know things could never go back the same, but waiting for that day we meet again and live the moment we lost somehow...
+                    Wish we could cross paths one more time... your heart closer to mine. Fill the air with laughter, scatter the mist with memories that bliss.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>&copy; 2026 Ethical Writes. All rights reserved. | A sanctuary for the literary soul.</p>
+    </footer>
+
+</body>
 </html>

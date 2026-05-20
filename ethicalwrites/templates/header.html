@@ -1,0 +1,100 @@
+<style>
+    .page-header {
+        background: rgba(44, 36, 24, 0.96);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 14px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 3px solid;
+        border-image: linear-gradient(to right, #7a2e3b, #c9a94e, #7a2e3b) 1;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }
+
+    .page-header .brand {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #faf6f0;
+        text-decoration: none;
+        letter-spacing: 0.03em;
+        transition: all 0.3s ease;
+    }
+
+    .page-header .brand span {
+        color: #c9a94e;
+        font-style: italic;
+    }
+
+    .page-header .brand:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+    }
+
+    .header-actions {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+    }
+
+    .header-actions a {
+        color: rgba(250, 246, 240, 0.85);
+        text-decoration: none;
+        font-size: 0.92rem;
+        padding: 8px 20px;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        font-family: 'Lora', serif;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+    }
+
+    .header-actions a:hover {
+        color: #c9a94e;
+        background: rgba(201, 169, 78, 0.12);
+        text-decoration: none;
+    }
+
+    .header-actions .back-btn {
+        border: 1px solid rgba(201, 169, 78, 0.4);
+    }
+
+    .header-actions .back-btn:hover {
+        border-color: #c9a94e;
+        background: rgba(201, 169, 78, 0.18);
+    }
+
+    @media (max-width: 768px) {
+        .page-header { padding: 12px 24px; }
+        .page-header .brand { font-size: 1.3rem; }
+        .header-actions { gap: 10px; }
+        .header-actions a { font-size: 0.85rem; padding: 6px 14px; }
+    }
+
+    @media (max-width: 480px) {
+        .page-header { padding: 10px 16px; }
+        .page-header .brand { font-size: 1.15rem; }
+        .header-actions { gap: 6px; }
+        .header-actions a { font-size: 0.78rem; padding: 5px 10px; gap: 4px; }
+    }
+</style>
+
+<!-- Header Component -->
+<header class="page-header">
+    <a href="{% url 'home' %}" class="brand">Ethical <span>Writes</span></a>
+    <div class="header-actions">
+        {% if request.resolver_match.url_name == 'webpage1' or active_page == 'webpage1' %}
+            <a href="{% url 'home' %}" class="back-btn"><i class="fas fa-home"></i> Home</a>
+        {% else %}
+            <a href="{% url 'webpage1' %}" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Creations</a>
+        {% endif %}
+        <a href="{% url 'logout_user' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+</header>
