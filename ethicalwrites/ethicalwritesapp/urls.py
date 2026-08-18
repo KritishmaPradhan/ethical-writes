@@ -19,13 +19,17 @@ from django.urls import path
 from ethicalwritesapp import views
 
 urlpatterns = [
-    path('', views.index, name="home"),
-    path('login_user/', views.login_user, name="login_user"),
-    path('logout_user/', views.logout_user, name="logout_user"),    
-    path('signup/', views.signup, name = "signup"),
-    path('webpage1', views.webpage1, name= "webpage1"),
-    path('webpage2', views.webpage2, name= "webpage2"),
-    path('webpage3', views.webpage3, name= "webpage3"),
-    path('webpage4', views.webpage4, name= "webpage4"),
-    path('work/<int:work_id>/', views.view_user_work, name='view_user_work')
+    path('', views.index, name='home'),
+    path('login_user/', views.login_user, name='login_user'),
+    path('logout_user/', views.logout_user, name='logout_user'),
+    path('signup/', views.signup, name='signup'),
+    path('webpage1/', views.webpage1, name='webpage1'),
+    path('webpage2/', views.webpage2, name='webpage2'),
+    path('webpage3/', views.webpage3, name='webpage3'),
+    path('webpage4/', views.webpage4, name='webpage4'),
+    path('work/<int:work_id>/', views.view_user_work, name='view_user_work'),
+    path('work/<int:work_id>/edit/', views.edit_work, name='edit_work'),
+    path('work/<int:work_id>/delete/', views.delete_work, name='delete_work'),
+    path('work/<int:work_id>/like/', views.toggle_like, name='toggle_like'),
+    path('work/<int:work_id>/comment/', views.add_comment, name='add_comment'),
 ]

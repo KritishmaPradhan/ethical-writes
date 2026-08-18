@@ -65,6 +65,7 @@
         .header-actions a:hover {
             color: #c9a94e;
             background: rgba(201, 169, 78, 0.1);
+            text-decoration: none;
         }
 
         .header-actions .back-btn {
@@ -150,6 +151,188 @@
         .work-content p:last-child {
             margin-bottom: 0;
         }
+ 
+        .work-action-bar {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0 30px;
+        }
+
+        .inline-form {
+            display: inline-block;
+            margin: 0;
+        }
+
+        .icon-action-btn,
+        .comment-toggle {
+            appearance: none;
+            border: 1px solid rgba(122, 46, 59, 0.2);
+            background: #fff;
+            color: #2c2418;
+            border-radius: 999px;
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.2s ease;
+            cursor: pointer;
+        }
+
+        a.icon-action-btn,
+        a.icon-action-btn:link,
+        a.icon-action-btn:visited,
+        a.icon-action-btn:hover,
+        a.icon-action-btn:active,
+        a.icon-action-btn:focus,
+        button.comment-toggle,
+        button.comment-toggle:link,
+        button.comment-toggle:visited,
+        button.comment-toggle:hover,
+        button.comment-toggle:active,
+        button.comment-toggle:focus {
+            color: #2c2418 !important;
+            text-decoration: none !important;
+        }
+
+        .icon-action-btn:hover,
+        .comment-toggle:hover {
+            border-color: rgba(122, 46, 59, 0.45);
+            box-shadow: 0 0 4px rgba(44, 36, 24, 0.479);
+        }
+
+        .icon-action-btn.liked,
+        .like-toggle.liked {
+            background: #fff;
+            color: #7a2e3b;
+            border-color: rgba(122, 46, 59, 0.45);
+        }
+
+        .icon-action-btn.delete-action {
+            color: #b24a4a;
+        }
+
+        .action-stat {
+            color: #6b5d4e;
+            font-weight: 600;
+            margin-left: 2px;
+            min-width: 16px;
+            text-align: center;
+        }
+
+        .comment-toggle {
+            width: auto;
+            height: 38px;
+            padding: 0 14px;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #2c2418;
+        }
+
+        .comment-toggle.active {
+            background: #f8f3ed;
+            border-color: rgba(122, 46, 59, 0.3);
+        }
+
+        .community-panel {
+            background: #fff;
+            border-radius: 12px;
+            padding: 18px 18px 10px;
+            border: 1px solid rgba(201, 169, 78, 0.18);
+            box-shadow: 0 2px 10px rgba(44, 36, 24, 0.03);
+            margin-top: 30px;
+        }
+
+        .comment-shell {
+            display: none;
+            margin-top: 16px;
+        }
+
+        .comment-shell.open {
+            display: block;
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid rgba(122, 46, 59, 0.25);
+            padding: 12px 14px;
+            resize: vertical;
+            min-height: 86px;
+            font-size: 0.95rem;
+            color: #2c2418;
+        }
+
+        .comment-form textarea:focus {
+            outline: none;
+            border-color: rgba(122, 46, 59, 0.5);
+            box-shadow: 0 0 0 3px rgba(122, 46, 59, 0.06);
+        }
+
+        .comment-submit {
+            align-self: flex-end;
+            border: 1px solid rgba(122, 46, 59, 0.4);
+            background: transparent;
+            color: #2c2418;
+            border-radius: 999px;
+            padding: 9px 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .comment-submit:hover {
+            background: #f9f1ea;
+            border-color: rgba(122, 46, 59, 0.6);
+        }
+
+        .comment-list {
+            margin-top: 18px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .comment-item {
+            padding: 12px 0;
+            border-top: 1px solid #f1e9dd;
+        }
+
+        .comment-item:first-child {
+            border-top: none;
+        }
+
+        .comment-item strong {
+            display: block;
+            color: #7a2e3b;
+            font-size: 0.92rem;
+        }
+
+        .comment-item span {
+            color: #8b7d6b;
+            font-size: 0.75rem;
+        }
+
+        .comment-item p {
+            margin: 8px 0 0;
+            color: #2c2418;
+            line-height: 1.6;
+        }
+
+        .no-comments {
+            color: #8b7d6b;
+            margin-top: 12px;
+            font-size: 0.92rem;
+        }
 
         /* ---- Footer ---- */
         .page-footer {
@@ -216,8 +399,56 @@
             </div>
         </div>
 
+        <div class="work-action-bar">
+            {% if is_owner %}
+                <a href="{% url 'edit_work' user_work.id %}" class="icon-action-btn" title="Edit work" aria-label="Edit work"><i class="fas fa-pen"></i></a>
+                <form method="post" action="{% url 'delete_work' user_work.id %}" class="inline-form">
+                    {% csrf_token %}
+                    <button type="submit" class="icon-action-btn delete-action" title="Delete work" aria-label="Delete work" onclick="return confirm('Delete this work permanently?');"><i class="fas fa-trash"></i></button>
+                </form>
+            {% endif %}
+
+            <form method="post" action="{% url 'toggle_like' user_work.id %}" class="inline-form">
+                {% csrf_token %}
+                <button type="submit" class="icon-action-btn like-toggle {% if user_has_liked %}liked{% else %}unliked{% endif %}" title="{% if user_has_liked %}Unlike{% else %}Like{% endif %}" aria-label="{% if user_has_liked %}Unlike{% else %}Like{% endif %}">
+                    <i class="{% if user_has_liked %}fas fa-heart{% else %}far fa-heart{% endif %}"></i>
+                </button>
+            </form>
+            <span class="action-stat">{{ total_likes }}</span>
+        </div>
+
         <div class="work-content">
             {{ user_work.freewriting }}
+        </div>
+
+        <div class="community-panel">
+            <div style="margin-top: 24px; display: flex; justify-content: flex-start;">
+                <button type="button" class="comment-toggle" aria-expanded="false" aria-controls="comment-section">
+                    <i class="far fa-comment"></i>
+                    <span>{{ total_comments }}</span>
+                </button>
+            </div>
+            <div id="comment-section" class="comment-shell">
+                <form method="post" action="{% url 'add_comment' user_work.id %}" class="comment-form">
+                    {% csrf_token %}
+                    <textarea name="text" rows="3" placeholder="Write a comment..." required></textarea>
+                    <button type="submit" class="comment-submit"><i class="fas fa-paper-plane"></i> Post</button>
+                </form>
+
+                {% if comments %}
+                    <div class="comment-list">
+                        {% for comment in comments %}
+                            <div class="comment-item">
+                                <strong>@{{ comment.user.username }}</strong>
+                                <span>{{ comment.created_at|date:"M d, Y" }}</span>
+                                <p>{{ comment.text }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p class="no-comments">No comments yet.</p>
+                {% endif %}
+            </div>
         </div>
     </div>
 
@@ -225,5 +456,20 @@
     <footer class="page-footer">
         <p>&copy; 2026 Ethical Writes. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButton = document.querySelector('.comment-toggle');
+            const commentSection = document.getElementById('comment-section');
+
+            if (toggleButton && commentSection) {
+                toggleButton.addEventListener('click', function () {
+                    const isOpen = commentSection.classList.toggle('open');
+                    toggleButton.classList.toggle('active', isOpen);
+                    toggleButton.setAttribute('aria-expanded', String(isOpen));
+                });
+            }
+        });
+    </script>
 </body>
 </html>

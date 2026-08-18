@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
+
 class UserInfo(models.Model):
     """Extended user profile linked to Django's User model."""
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile', null=True)
@@ -26,9 +26,43 @@ class UserWork(models.Model):
     author = models.CharField(max_length=150, blank=True, null=True)
     title = models.CharField(max_length=255, blank=True, null=True)
 
+    @property
+    def total_likes(self):
+        return self.likes.count()
+
+    @property
+    def total_comments(self):
+        return self.comments.count()
+
     def __str__(self):
         return f"{self.username} - {self.submitted_date.strftime('%Y-%m-%d %H:%M')}"
 
     class Meta:
         verbose_name_plural = 'User Works'
         ordering = ['-submitted_date']
+
+
+class WorkLike(models.Model):
+    work = models.ForeignKey(UserWork, on_delete=models.CASCADE, related_name='likes')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='work_likes')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('work', 'user')
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"{self.user.username} likes {self.work.title}"
+
+
+class WorkComment(models.Model):
+    work = models.ForeignKey(UserWork, on_delete=models.CASCADE, related_name='comments')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='work_comments')
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_at']
+
+    def __str__(self):
+        return f"{self.user.username}: {self.text[:50]}"
